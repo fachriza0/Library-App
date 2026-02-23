@@ -1,17 +1,21 @@
 const currentDiv = document.getElementById("books");
+const form = document.getElementById("form");
 
 const myLibrary = [
   {
     title: "hobbit",
     pages: 200,
+    id: crypto.randomUUID(),
   },
   {
     title: "LOTR",
     pages: 220,
+    id: crypto.randomUUID(),
   },
   {
     title: "Test",
     pages: 120,
+    id: crypto.randomUUID(),
   },
 ];
 
@@ -24,7 +28,7 @@ function book() {
     const newDiv = document.createElement("div");
     newDiv.id = "book";
     newDiv.className = "book";
-    newDiv.textContent = `${myLibrary[i].title}, ${myLibrary[i].pages} pages`;
+    newDiv.textContent = `${myLibrary[i].title}, ${myLibrary[i].pages} pages.`;
     currentDiv.appendChild(newDiv);
   }
 }
@@ -32,3 +36,17 @@ function book() {
 book();
 
 function addBookToLibrary() {}
+
+function showForm() {
+  if (form.style.display === "none") {
+    form.style.display = "block";
+    newBook.innerHTML = "Cancel";
+  } else {
+    form.style.display = "none";
+    newBook.innerHTML = "New Book";
+  }
+}
+
+const newBook = document.getElementById("newBook");
+
+newBook.addEventListener("click", showForm);
