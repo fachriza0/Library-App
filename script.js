@@ -50,3 +50,15 @@ function showForm() {
 const newBook = document.getElementById("newBook");
 
 newBook.addEventListener("click", showForm);
+
+const name = document.getElementById("name");
+const pages = document.getElementById("pages");
+const submit = document.querySelector("#submit");
+
+submit.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log(name.value);
+  console.log(pages.value);
+  name.value = "";
+  pages.value = "";
+});
